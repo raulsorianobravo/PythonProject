@@ -26,3 +26,9 @@ listRange = list(range(1,9,2))
 print (listRange)
 #[1, 3, 5, 7]
 
+#Exercises
+temperatures = [1.4, 66, "temp"]
+print(temperatures)
+
+rainfall = [3.5, 44, "Text", [0,5.6,"text2"]]
+print(rainfall)
