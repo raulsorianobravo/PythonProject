@@ -47,6 +47,7 @@ print(df4)
 # 4   5  1056 Sanchez St  San Francisco        California     USA      Sanchez         12
 # 5   6  551 Alvarado St  San Francisco          CA 94114     USA   Richvalley         20
 
+#With separators
 df5=pandas.read_csv("./Section13/files/supermarkets/supermarkets-semi-colons.txt", sep=";")
 print(df5)
 
@@ -58,6 +59,7 @@ print(df5)
 # 4   5  1056 Sanchez St  San Francisco        California     USA       Sanchez         12
 # 5   6  551 Alvarado St  San Francisco          CA 94114     USA    Richvalley         20
 
+#Without Headers
 df8=pandas.read_csv("./Section13/files/supermarkets/supermarkets.csv", header=None)
 print("df8\n", df8)
 
@@ -70,7 +72,7 @@ print("df8\n", df8)
 # 5   5  1056 Sanchez St  San Francisco        California      USA      Sanchez         12
 # 6   6  551 Alvarado St  San Francisco          CA 94114      USA   Richvalley         20
 
-
+#Assign Columns names
 df8.columns = ["ID", "Address", "City", "zip", "Country", "Name", "Employess"]
 print("df8\n", df8)
 
@@ -85,7 +87,7 @@ print("df8\n", df8)
 # 6   6  551 Alvarado St  San Francisco          CA 94114      USA   Richvalley         20
 
 
-#SET Index
+#SET Index. Show since the coulumn selected
 df9=pandas.read_csv("./Section13/files/supermarkets/supermarkets.csv")
 df9_= df9.set_index("ID")
 print("df9_\n", df9_ ,"\ndf9\n", df9)
@@ -108,7 +110,7 @@ print("df9_\n", df9_ ,"\ndf9\n", df9)
 # 4   5  1056 Sanchez St  San Francisco        California     USA      Sanchez         12
 # 5   6  551 Alvarado St  San Francisco          CA 94114     USA   Richvalley         20
 
-# Keep the index 
+# overwrite the index 
 df10=pandas.read_csv("./Section13/files/supermarkets/supermarkets.csv")
 df10.set_index("ID", inplace=True)
 print("df10\n", df10)
@@ -123,7 +125,7 @@ print("df10\n", df10)
 # 5   1056 Sanchez St  San Francisco        California     USA      Sanchez         12
 # 6   551 Alvarado St  San Francisco          CA 94114     USA   Richvalley         20
 
-# Delete ID column an set Address
+# Delete the index column an set Address. Lost the columns Address as values
 
 df11=pandas.read_csv("./Section13/files/supermarkets/supermarkets.csv")
 df11.set_index("Address", inplace=True)
@@ -153,3 +155,4 @@ print("df11\n", df11)
 # 10          4     3995 23rd St  San Francisco          CA 94114     USA   Ben's Shop         10
 # 12          5  1056 Sanchez St  San Francisco        California     USA      Sanchez         12
 # 20          6  551 Alvarado St  San Francisco          CA 94114     USA   Richvalley         20
+
