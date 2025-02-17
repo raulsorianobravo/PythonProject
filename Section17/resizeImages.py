@@ -2,6 +2,11 @@ import cv2
 import os
 import glob
 
+images2 = os.listdir("./Section17/sample_images (1)")
+
+for image in images2:
+    print(image)
+
 images = glob.glob("./Section17/sample_images (1)/*.jpg")
 
 for image in images:
