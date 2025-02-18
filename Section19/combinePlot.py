@@ -14,3 +14,5 @@ p.circle([1,2,3,4,5], [5,6,5,5,3], size = [i*2 for i in [8,12,14,15,20]], color=
 output_file("Scatter_plotting.html")
 
 show(p)
+
+#bokeh.pydata.org/en/latest/docs/userGuide/plotting.html
