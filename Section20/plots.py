@@ -86,3 +86,47 @@ plt.plot(result.index, result["Rating"])
 plt.show()
 print("-----------------------------------------")
 
+#PLOT image
+
+print(result["Rating"].min(), result["Rating"].max())
+print("-----------------------------------------")
+
+# 3.7916666666666665 5.0
+# -----------------------------------------
+
+plt.figure(figsize=(25,3))
+plt.plot(result.index, result["Rating"]) 
+plt.show()
+print("-----------------------------------------")
+
+#PLOT resize
+
+
+
+counter = data.groupby("Day").count()
+print(counter)
+print("-----------------------------------------")
+
+#             Course Name  Timestamp  Rating  Comment
+# Day
+# 2018-01-01           46         46      46        7
+# 2018-01-02           57         57      57       16
+# 2018-01-03           43         43      43        8
+# 2018-01-04           48         48      48       11
+# 2018-01-05           52         52      52       15
+# ...                 ...        ...     ...      ...
+# 2021-03-29           25         25      25        1
+# 2021-03-30           35         35      35        1
+# 2021-03-31           32         32      32        3
+# 2021-04-01           27         27      27        3
+# 2021-04-02            7          7       7        0
+
+# [1188 rows x 4 columns]
+# -----------------------------------------
+
+plt.figure(figsize=(25,3))
+plt.plot(counter.index, counter["Rating"]) 
+plt.show()
+print("-----------------------------------------")
+
+#PLOT resize
