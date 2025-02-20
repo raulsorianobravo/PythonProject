@@ -180,3 +180,36 @@ plt.figure(figsize=(25,8))
 plt.plot(month_average_crs.index, month_average_crs) 
 plt.show()
 print("-----------------------------------------")
+
+
+
+#==================================================================
+
+data["Weekday"] = data["Timestamp"].dt.strftime('%A')
+print(data)
+print("-----------------------------------------")
+
+weekday_avg = data.groupby(["Weekday"])["Rating"].mean(numeric_only=True)
+
+print(weekday_avg)
+print("-----------------------------------------")
+
+plt.figure(figsize=(25,8))
+plt.plot(weekday_avg.index, weekday_avg) 
+plt.show()
+print("-----------------------------------------")
+
+
+#====================================================================
+
+data["Weekdaynumber"] = data["Timestamp"].dt.strftime('%w')
+weekday_avg = data.groupby(["Weekday", "Weekdaynumber"]).mean(numeric_only=True)
+weekday_avg = weekday_avg.sort_values("Weekdaynumber")
+
+print(weekday_avg)
+print("-----------------------------------------")
+
+plt.figure(figsize=(25,8))
+plt.plot(weekday_avg.index.get_level_values(0), weekday_avg) 
+plt.show()
+print("-----------------------------------------")
