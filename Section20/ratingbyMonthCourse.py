@@ -213,3 +213,23 @@ plt.figure(figsize=(25,8))
 plt.plot(weekday_avg.index.get_level_values(0), weekday_avg) 
 plt.show()
 print("-----------------------------------------")
+
+print(dir(plt))
+
+plt.figure(figsize=(25,8))
+plt.bar(weekday_avg.index.get_level_values(0), weekday_avg["Rating"]) 
+plt.show()
+print("-----------------------------------------")
+
+plt.figure(figsize=(25,8))
+plt.pie(weekday_avg["Rating"], labels=weekday_avg.index) 
+plt.show()
+print("-----------------------------------------")
+
+
+share = data.groupby(["Course Name"])["Rating"].count()
+
+plt.figure(figsize=(25,8))
+plt.pie(share, labels=share.index) 
+plt.show()
+print("-----------------------------------------")
