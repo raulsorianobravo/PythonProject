@@ -72,6 +72,18 @@ def app():
     p1 = jp.QDiv(a=wp, text = "Graphs of the course")
     hc = jp.HighCharts(a=wp, options= chart_def)
 
+    # Change fields
+    #hc.options.title.text = "Title"
+
+    # Change Data
+    hc.options.series[0].data = [[3,6], [44,6], [553,0]]
+
+    # or
+
+    x = [3,44,553]
+    y = [6,6,1] 
+    hc.options.series[0].data = list(zip(x,y))
+
     return wp
 
 jp.justpy(app, port=8900)
