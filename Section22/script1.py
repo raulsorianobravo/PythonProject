@@ -9,6 +9,11 @@ app = Flask(__name__)
 @app.route('/')
 
 def home():
+    return "Home Page"
+
+@app.route('/about/')
+
+def about():
     return "Website Content"
 
 # Debug mode
