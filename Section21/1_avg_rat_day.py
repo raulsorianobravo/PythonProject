@@ -104,8 +104,21 @@ def appDataFrame():
     # Change fields
     #hc.options.title.text = "Title"
 
+    hc.options.title.text = "Ratings by Day"
+    hc.options.subtitle.text = "Data provided by the course"
+
     hc.options.chart.inverted = False
+    hc.options.xAxis.title.text = "Date"
     
+    hc.options.xAxis.labels.format = "{value}"
+
+    hc.options.yAxis.title.text = "Average Rating"
+    hc.options.yAxis.labels.format = "{value}"
+
+    hc.options.series[0].name = "Avg Rating"
+
+    hc.options.tooltip.pointFormat = '{point.x} {point.y}'
+
     # Problem. Index is not a number of a dot, so 2022-11-1 could be in the graph
     # Must convert the axis
     # hc.options.series[0].data = list(zip(day_avg.index,day_avg["Rating"]))
