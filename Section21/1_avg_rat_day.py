@@ -1,10 +1,19 @@
 import justpy as jp
 
+import pandas
+from datetime import datetime
+from pytz import utc
+import matplotlib.pyplot as pt
+
+data = pandas.read_csv("./Section21/data/reviews.csv", parse_dates=["Timestamp"])
+data["Day"] = data["Timestamp"].dt.date
+day_avg = data.groupby(["Day"]).mean(numeric_only=True)
+
 chart_def = """
 {
     chart: {
         type: 'spline',
-        inverted: true
+        inverted: false
     },
     title: {
         text: 'Atmosphere Temperature by Altitude'
@@ -86,4 +95,24 @@ def app():
 
     return wp
 
-jp.justpy(app, port=8900)
+def appDataFrame():
+    wp = jp.QuasarPage()
+    h1 = jp.QDiv(a=wp, text = "Analysis of Course Reviews", classes="text-h1 text-center	")
+    p1 = jp.QDiv(a=wp, text = "Graphs of the course")
+    hc = jp.HighCharts(a=wp, options= chart_def)
+
+    # Change fields
+    #hc.options.title.text = "Title"
+
+    hc.options.chart.inverted = False
+    
+    # Problem. Index is not a number of a dot, so 2022-11-1 could be in the graph
+    # Must convert the axis
+    # hc.options.series[0].data = list(zip(day_avg.index,day_avg["Rating"]))
+
+    hc.options.xAxis.categories = list(day_avg.index)
+    hc.options.series[0].data = list(day_avg["Rating"])
+
+    return wp
+
+jp.justpy(appDataFrame, port=8900)
