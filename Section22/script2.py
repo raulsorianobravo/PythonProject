@@ -15,7 +15,7 @@ def home():
 @app.route('/about/')
 
 def about():
-    return "Website Content"
+    return render_template("about.html")
 
 # Debug mode
 if __name__ == "__main__":
