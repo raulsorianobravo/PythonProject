@@ -6,7 +6,7 @@ def connect():
 
     cur = conn.cursor()
 
-    cur.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY, title text, year, integer, isbn integer)")
+    cur.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY, title text, author text, year integer, isbn integer)")
 
     conn.commit()
     conn.close()
@@ -36,7 +36,7 @@ def search(title="", author="", year="", isbn=""):
 
     cur = conn.cursor()
 
-    cur.execute("SELECT * FROM book WHERE title=? OR author=?, OR year=?, OR isbn=?",(title,author,year,isbn))
+    cur.execute("SELECT * FROM book WHERE title=? OR author=? OR year=? OR isbn=?",(title,author,year,isbn))
     rows = cur.fetchall()
     conn.close()
     return rows
@@ -68,3 +68,6 @@ def update(id, title, author, year, isbn):
     cur.execute("UPDATE store SET title=?, author=?, year=?, isbn=? WHERE id=?",(title, author, year,isbn,id))
     conn.commit()
     conn.close()
+
+connect()
+print(view())

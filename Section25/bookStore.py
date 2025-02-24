@@ -9,7 +9,22 @@ Functions
 
 from tkinter import *
 import backBookStore
- 
+
+def view_command():
+    list1.delete(0,END)
+    for row in backBookStore.view():
+        list1.insert(END,row)
+        
+def search_command():
+    list1.delete(0,END)
+    for row in backBookStore.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+        list1.insert(END, row)
+        
+def insert_command():
+    list1.delete(0,END)
+    backBookStore.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+     
+
 # Create an empty Tkinter window
 window=Tk()
 
@@ -52,9 +67,9 @@ sb1.grid(row=2, column=2)
 list1.configure(yscrollcommand=sb1.set)
 sb1.configure(command=list1.yview)
 
-b1=Button(window, text="View all", width=12)
-b2=Button(window, text="Search", width=12)
-b3=Button(window, text="Add", width=12)
+b1=Button(window, text="View all", width=12, command=view_command)
+b2=Button(window, text="Search", width=12, command=search_command)
+b3=Button(window, text="Add", width=12, command=insert_command)
 b4=Button(window, text="Update", width=12)
 b5=Button(window, text="Delete", width=12)
 b6=Button(window, text="Close", width=12)
@@ -65,6 +80,7 @@ b3.grid(row=4,column=3)
 b4.grid(row=5,column=3)
 b5.grid(row=6,column=3)
 b6.grid(row=7,column=3)
+
 
 
 
