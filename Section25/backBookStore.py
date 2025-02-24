@@ -70,4 +70,5 @@ def update(id, title, author, year, isbn):
     conn.close()
 
 connect()
+delete(1)
 print(view())
