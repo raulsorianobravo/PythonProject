@@ -45,7 +45,7 @@ def update(item, quantity, price):
     conn = sqlite3.connect("./Section24/lite.db")
 
     cur = conn.cursor()
-    cur.execute("UPDATE store SET quantity=?, price=? WHERE item=?",(quantity, price, item,))
+    cur.execute("UPDATE store SET quantity=?, price=? WHERE item=?",(quantity, price, item))
     conn.commit()
     conn.close()
 
