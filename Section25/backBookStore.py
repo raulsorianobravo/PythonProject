@@ -62,13 +62,13 @@ def delete(id):
 
 def update(id, title, author, year, isbn):
     
-    conn = sqlite3.connect("./Section25/lite.db")
+    conn = sqlite3.connect("./Section25/books.db")
 
     cur = conn.cursor()
-    cur.execute("UPDATE store SET title=?, author=?, year=?, isbn=? WHERE id=?",(title, author, year,isbn,id))
+    cur.execute("UPDATE book SET title=?, author=?, year=?, isbn=? WHERE id=?",(title, author, year,isbn,id))
     conn.commit()
     conn.close()
 
 connect()
-delete(1)
+#update(2,"S","s",1233,233232434)
 print(view())
