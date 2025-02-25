@@ -2,3 +2,5 @@ sqlite3
 psycopg2
 
 pip install psycopg2
+
+pip install pyinstaller
