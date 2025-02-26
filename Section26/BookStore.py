@@ -1,19 +1,21 @@
 from tkinter import *
-import backBookStore
+from backBookStore import Database
+
+database = Database("./Section26/books.db")
 
 def view_command():
     list1.delete(0,END)
-    for row in backBookStore.view():
+    for row in database.view():
         list1.insert(END,row)
         
 def search_command():
     list1.delete(0,END)
-    for row in backBookStore.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+    for row in database.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
         list1.insert(END, row)
         
 def insert_command():
     list1.delete(0,END)
-    backBookStore.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    database.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
     view_command()
 
 def get_selected_row(event):
@@ -34,10 +36,10 @@ def get_selected_row(event):
         pass
 
 def delete_command():
-    backBookStore.delete(selected_tuple[0])
+    database.delete(selected_tuple[0])
      
 def update_command():
-    backBookStore.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    database.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
 
 
 # Create an empty Tkinter window
