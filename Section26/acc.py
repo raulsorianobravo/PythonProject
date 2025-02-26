@@ -33,14 +33,18 @@ class Account:
 #inherit
 class Checking(Account):
 
-    def __init__(self, filepath):
+    def __init__(self, filepath, fee):
         Account.__init__(self, filepath)
+        self.fee = fee
 
     def transfer(self, amount):
         self.balance = self.balance - amount
 
+    def transferWithFee(self, amount):
+        self.balance = self.balance - amount - self.fee
 
-checking = Checking("./Section26/balance.txt")
+
+checking = Checking("./Section26/balance.txt", 2)
 print(checking)    
 print(checking.balance)
 
