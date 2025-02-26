@@ -32,6 +32,9 @@ class Account:
 
 #inherit
 class Checking(Account):
+    """ This class generates checking account objects"""
+
+    type="checking"
 
     def __init__(self, filepath, fee):
         Account.__init__(self, filepath)
@@ -39,9 +42,11 @@ class Checking(Account):
 
     def transfer(self, amount):
         self.balance = self.balance - amount
+        self.type = self.balance
 
     def transferWithFee(self, amount):
         self.balance = self.balance - amount - self.fee
+
 
 
 checking = Checking("./Section26/balance.txt", 2)
@@ -51,5 +56,21 @@ print(checking.balance)
 checking.deposit(443)
 print(checking.balance) 
 
-checking.transfer(443)
-print(checking.balance) 
+checking.transfer(410)
+print(checking.balance)
+
+print(checking.type)
+
+
+checking2 = Checking("./Section26/balance.txt", 2)
+print(checking2)    
+print(checking2.balance)
+
+checking2.deposit(3)
+print(checking2.balance) 
+
+checking2.transfer(24)
+print(checking2.balance) 
+print(checking2.type)
+
+print(checking2.__doc__)
