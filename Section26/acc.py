@@ -18,13 +18,34 @@ class Account:
 
         
 
-account = Account("./Section26/balance.txt")
-print(account)    
-print(account.balance)  
+# account = Account("./Section26/balance.txt")
+# print(account)    
+# print(account.balance)  
 
-account.withdraw(43)
-print(account.balance) 
-account.deposit(443)
-print(account.balance) 
+# account.withdraw(43)
+# print(account.balance) 
+# account.deposit(443)
+# print(account.balance) 
 
-account.commit()
+# account.commit()
+
+
+#inherit
+class Checking(Account):
+
+    def __init__(self, filepath):
+        Account.__init__(self, filepath)
+
+    def transfer(self, amount):
+        self.balance = self.balance - amount
+
+
+checking = Checking("./Section26/balance.txt")
+print(checking)    
+print(checking.balance)
+
+checking.deposit(443)
+print(checking.balance) 
+
+checking.transfer(443)
+print(checking.balance) 
