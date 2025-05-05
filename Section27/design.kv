@@ -47,6 +47,8 @@
 <SignUpScreen>:
     GridLayout:
         cols:1
+        padding: 20,20
+        spacing: 20,20
         Label:
             text: "Sign up for."
         TextInput:
@@ -55,9 +57,13 @@
         TextInput:
             id: password
             hint_text: "Password"
-        Button:
-            text: "Submit"
-            on_press: root.add_user(root.ids.username.text, root.ids.password.text)
+        RelativeLayout:    
+            Button:
+                text: "Submit"
+                size_hint: 0.3, 0.5
+                on_press: root.add_user(root.ids.username.text, root.ids.password.text)
+                pos_hint:{'center_x':0.5, 'center_y':0.6}
+
 
 <SignUpScreenSuccess>:
     GridLayout:
@@ -71,6 +77,8 @@
 <LoginScreenSuccess>:
     GridLayout:
         cols:1
+        padding: 30,30
+        spacing: 30,30
         Button:
             text:"Logout"
             on_press: root.log_out()
