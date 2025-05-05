@@ -6,6 +6,9 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 import json
 from datetime import datetime
+from hoverable import HoverBehavior
+from kivy.uix.image import Image
+from kivy.uix.behaviors import ButtonBehavior
 
 Builder.load_file("./Section27/design.kv")
 
@@ -61,6 +64,9 @@ class LoginScreenSuccess(Screen):
             self.ids.quote.text = random.choice(quotes)
         else:
             self.ids.quote.text = "Try another feeling"
+
+class ImageButton(HoverBehavior,Image, ButtonBehavior):
+    pass
 
 class RootWidget(ScreenManager):
     pass

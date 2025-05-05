@@ -79,9 +79,10 @@
         cols:1
         padding: 30,30
         spacing: 30,30
-        Button:
-            text:"Logout"
+        ImageButton:
+            # text:"Logout"
             on_press: root.log_out()
+            source: "logout_hover.png' if self.hovered else "logout_nothover.png"
         Label:
             text:"How do you feel?"
         TextInput:
