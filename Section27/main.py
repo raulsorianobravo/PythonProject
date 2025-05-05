@@ -19,6 +19,7 @@ class LoginScreen(Screen):
         self.manager.current = "sign_up_screen"
     
     def login(self, uname, pword):
+        self.manager.transition.direction = "left"
         with open("./Section27/user.json") as file:
             users = json.load(file)
         if uname in users and users[uname]['password'] == pword:
@@ -65,7 +66,7 @@ class LoginScreenSuccess(Screen):
         else:
             self.ids.quote.text = "Try another feeling"
 
-class ImageButton(HoverBehavior,Image, ButtonBehavior):
+class ImageButton(HoverBehavior, ButtonBehavior,Image):
     pass
 
 class RootWidget(ScreenManager):

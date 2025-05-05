@@ -79,10 +79,13 @@
         cols:1
         padding: 30,30
         spacing: 30,30
-        ImageButton:
-            # text:"Logout"
-            on_press: root.log_out()
-            source: "logout_hover.png' if self.hovered else "logout_nothover.png"
+        RelativeLayout:
+            ImageButton:
+                # text:"Logout"
+                on_press: root.log_out()
+                source: "./Section27/logout_hover.png" if self.hovered else "./Section27/logout_nothover.png"
+                size_hint: 0.35, 0.35
+                pos_hint:{'center_x':0.9, 'center_y':0.8}
         Label:
             text:"How do you feel?"
         TextInput:
@@ -94,6 +97,7 @@
         Label:
             id: quote
             text:""
+            text_size: self.width, self.height
 <RootWidget>:
     LoginScreen:
         name:"login_screen"
