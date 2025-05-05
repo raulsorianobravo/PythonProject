@@ -4,8 +4,11 @@
         cols:1
         GridLayout:
             cols:1
+            padding: 15,15
+            spacing: 20,20
             Label:
                 text:"User Login"
+                font_size: '20sp'
             TextInput:
                 id: username
                 hint_text: "Username"
@@ -14,6 +17,7 @@
                 hint_text: "Password"
             Button:
                 text: "Login"
+                size_hint: 0.3, 0.5
                 on_press: root.login(root.ids.username.text, root.ids.password.text)
             Label:
                 id: login_wrong
