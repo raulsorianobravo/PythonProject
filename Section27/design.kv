@@ -7,11 +7,17 @@
             Label:
                 text:"User Login"
             TextInput:
+                id: username
                 hint_text: "Username"
             TextInput:
+                id: password
                 hint_text: "Password"
             Button:
                 text: "Login"
+                on_press: root.login(root.ids.username.text, root.ids.password.text)
+            Label:
+                id: login_wrong
+                text: ""
         GridLayout:
             cols: 2
             Button:
@@ -45,11 +51,11 @@
             on_press: root.go_to_login()
 
 <LoginScreenSuccess>:
-    Gridlayout:
+    GridLayout:
         cols:1
         Button:
             text:"Logout"
-            on_press: log_out()
+            on_press: root.log_out()
         Label:
             text:"How do you feel?"
         TextInput:
